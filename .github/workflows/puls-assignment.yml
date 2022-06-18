@@ -1,0 +1,24 @@
+name: Puls Assignment
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        run: echo "Setting up desired python version"
+      - name: Install dependencies
+        run: echo "Installing dependencies with pip"
+      - name: Lint with pylint or another tool
+        run: echo "Linting"
+      - name: Run Yelp's detect-secrets
+        uses: RobertFischer/detect-secrets-action@v2.0.0
+      - name: Test with pytest
+        run: echo "Testing code with pytest"
+  deploy_to_dev:
+    needs: build
+    steps:
+      - name: Deploy to dev
+        run: echo "Deploying to dev env"
