@@ -19,6 +19,7 @@ jobs:
         run: echo "Testing code with pytest"
   deploy_to_dev:
     needs: build
+    runs-on: ubuntu-latest
     steps:
       - name: Deploy to dev
         run: echo "Deploying to dev env"
