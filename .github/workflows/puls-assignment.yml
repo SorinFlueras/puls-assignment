@@ -23,3 +23,10 @@ jobs:
     steps:
       - name: Deploy to dev
         run: echo "Deploying to dev env"
+  deploy_to_prod:
+    needs: deploy_to_dev
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - name: Deploy to prod
+        run: echo "Deploying to prod env"
